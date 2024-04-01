@@ -1,0 +1,20 @@
+var jsonData = JSON.stringify(formData);
+
+                // Faire appel au script PHP via AJAX
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://192.168.0.100/chemin/vers/traitement.php', // Adresse du serveur sur le réseau local
+                    contentType: 'application/json', // Indiquer que les données sont en JSON
+                    data: jsonData,
+                    success: function (response) {
+                        // Traiter la réponse ici
+                        alert(response.message); // Afficher le message de succès
+                        console.log(response.data); // Afficher les données du formulaire
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(formData);
+                        // Gérer les erreurs ici
+                        alert('Une erreur s\'est produite lors de la soumission du formulaire.');
+                        console.error(error);
+                    }
+                });

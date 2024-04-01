@@ -48,7 +48,6 @@
             </div>
         </div>
     </header>
-
     <div clasn="container-fluid">
         <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
@@ -91,52 +90,40 @@
                             </a>
                         </li>
                     </ul>
-
-
                 </div>
             </nav>
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                
 
-            <main class="col-md-9 ms-sm-auto col-lg-10">
-                <div
-                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Rapport des transactions</h1>
+                <div class="container">
+                    <div class="row border">
+                        <div class="col-md-12 col-sm-6 ">
+                            <div class="p-3">
+                                <h4>Information de l'utilisateur</h4>
+                                <form>
+                                    <div class="group-form mb-2">
+                                        <label for="exampleInputEmail1">Designation</label>
+                                        <input type="text" class="form-control mt-2" required id="exampleInputEmail1"
+                                            placeholder="Entrer designation d'utilisateur">
+                                    </div>
 
-                </div>
+                                    <div class="group-form mb-2">
+                                        <label for="exampleInputEmail1">Adresse </label>
+                                        <input type="text" class="form-control mt-2" required id="exampleInputEmail1"
+                                            placeholder="Entrer l'addresse du client">
+                                    </div>
 
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">compte a crediter</th>
-                                <th scope="col">compte a debiter</th>
-                                <th scope="col">client</th>
-                                <th scope="col">montant</th>
-                                <th scope="col">motif</th>
-                                <th>date transacton</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>124ML393LP873467</td>
-                                <td>124ML393LBANLGOMA </td>
-                                <td>ISC GOMA</td>
-                                <td>194$</td>
-                                <td>Gloria wasingya</td>
-                                <td>le 23.12.2022</td>
-                                <td style="width: 160px;">
-                                    <a href="ajouter.html" class="btn btn-sm btn-primary">editer</a>
-                                    <button class="btn btn-sm btn-danger">Supprimer</button>
-                                </td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
+                                    <div class="group-form mb-2">
+                                        <label for="exampleInputEmail1">Numero de telephone</label>
+                                        <input type="number" class="form-control mt-2" required id="exampleInputEmail1"
+                                            placeholder="numbero de telephone">
+                                    </div>
 
-
-                </div>
+                                    <div class="px-4 py-3">
+                                        <button type="submit" name="save"
+                                            class="btn w-100 btn-sm btn-success">Enregister</button>
+                                    </div>
+                                </form>
             </main>
 
 

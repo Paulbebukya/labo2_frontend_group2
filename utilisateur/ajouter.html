@@ -99,30 +99,30 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Modifier le client</h1>
-                    <a href="client.html" class="btn btn-sm btn-primary">Fermer</a>
+                    <h1 class="h2">Ajouter un utilisateur</h1>
+                    <a href="utilisateur.html" class="btn btn-sm btn-primary">Fermer</a>
                 </div>
 
                 <div class="container">
                     <div class="row border">
                         <div class="col-md-12 col-sm-6 ">
                             <div class="p-3">
-                                <h4>Information du client</h4>
+                                <h4>Information un utilisateur</h4>
                                 <form method="POST">
                                     <div class="group-form mb-2">
-                                        <label for="exampleInputEmail1">Designation</label>
+                                        <label for="exampleInputEmail1">nom d'utilisateur</label>
                                         <input type="text" class="form-control mt-2" name="name" required
                                             id="exampleInputEmail1" placeholder="Entrer designation du client">
                                     </div>
 
                                     <div class="group-form mb-2">
-                                        <label for="exampleInputEmail1">Adresse </label>
+                                        <label for="exampleInputEmail1">mot de passe par defaut </label>
                                         <input type="text" class="form-control mt-2" name="adress" required
                                             id="exampleInputEmail1" placeholder="Entrer l'addresse du client">
                                     </div>
 
                                     <div class="group-form mb-2">
-                                        <label for="exampleInputEmail1">Numero de telephone</label>
+                                        <label for="exampleInputEmail1">role</label>
                                         <input type="number" class="form-control mt-2" name="phone_number" required
                                             id="exampleInputEmail1" placeholder="numbero de telephone">
                                     </div>
@@ -132,7 +132,7 @@
                         </div>
 
                         <div class="px-4 py-3">
-                            <button type="submit" name="save" class="btn w-100 btn-sm btn-success">modifier</button>
+                            <button type="submit" name="save" class="btn w-100 btn-sm btn-success">Enregister</button>
                         </div>
 
                         </form>
@@ -145,6 +145,33 @@
         </div>
     </div>
     <script src="../../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script>
+        $("#form").submit(function(e){
+e.preventDefault();
+            var formdata={
+                nom: $('#nom').val(),
+                postnom: $('#postnom').val()
+                
+            };
+
+            var jsondata= json.stringify(formdata);
+        $.ajax({
+type: 'POST',
+url: 'http://192.168.128.210/api/traitement.php',
+contentType: 'application/json',
+data: jsonData,
+success: function (response) {
+    alert(response.data);
+
+},
+error: function (xhr, status, error){
+    alert('une erreur produite lors de la soumission du formulaire.');
+    console.error(error);
+}
+        })
+        });
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<form id="form">
+    <input type="text" id="nom">
+    <input type="text" id="postnom">
+    <button type="submit">Enregistrer</button>
+</form>
+<script src="jquery-3.7.1.min.js"></script>
+<script>
+    $('#form').submit(function(e) {
+        e.preventDefault();
+        var formData = {
+            nom: $('#nom').val(),
+            postnom: $('#postnom').val()
+
+        };
+        var jsonData = JSON.stringify(formData);
+        $.ajax({
+            type: 'POST',
+            url: 'http://192.168.128.210/api/traitement.php',
+            contentType: 'application/json',
+            data: jsonData,
+            success: function(response) {
+                alert(response.message);
+                console.log(response.data);
+            },
+            error: function(xhr, status, error) {
+                alert('une erreur produite lors de la soumission du formulaire.');
+                console.error(error);
+            }
+        })
+    })
+</script>
+
+</html>

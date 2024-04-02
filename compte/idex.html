@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="form"> 
+    <label for=""> Noms</label>
+    <input type=" text" id="Nom">
+    <label for=""> Postnom</label>
+    <input type="text"  id="Postnom">
+    <button type="submit"> Enreigister</button>
+    </form>
+</body>
+<script src="../jquery-3.7.1.min.js"></script>
+<script>
+$('#form').submit(function (e){
+    e.preventDefault();
+    var formData = {
+        nom: $('#Nom').val(),
+        postnom: $('#Postnom').val()
+    };
+    var jsonData = JSON.stringify(formData);
+    $.ajax({
+        type: 'POST',
+        url: 'http://192.168.128.210/api/traitement.php',
+        contentType: 'application/json',
+        data: jsonData,
+        success: function (response){
+            alert(response.data); //Afficher le message de succes 
+            console.log(response.data);
+        },
+        error: function (xhr, status, error){
+            alert('une erreur est survenue');
+            console.error(error);
+        }
+    })
+});
+</script>
+</html>
